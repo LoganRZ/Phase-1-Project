@@ -2,14 +2,14 @@
   "sandwhiches": [
     {
       "sandwhich": "Turkey",
-      "image": "",
+      "image": "https://www.valyastasteofhome.com/wp-content/uploads/2022/01/Turkey-Sandwich-Recipe.jpg",
       "price": "$10",
       "amount": 0,
       "id": 1
     },
     {
       "sandwhich": "Grilled Cheese",
-      "image": "",
+      "image": "https://natashaskitchen.com/wp-content/uploads/2021/08/Grilled-Cheese-Sandwich-SQ.jpg",
       "price": "$15",
       "amount": 0,
       "id": 2
