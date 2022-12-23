@@ -29,24 +29,24 @@ function addSandwhich(sandwhich) {
     let img = document.createElement('img')
     img.src = sandwhich.image
     img.className = 'sandwhich-img'
-    let species = document.createElement('div')
-    species.textContent = sandwhich.type
-    species.className = 'sandwhich-info'
+    let type = document.createElement('div')
+    type.textContent = sandwhich.type
+    type.className = 'sandwhich-info'
     let price = document.createElement('div')
     price.textContent = sandwhich.price
     price.className = 'sandwhich-info'
-    let quantity = document.createElement('div')
-    quantity.textContent = `Quantity: ${sandwhich.amount}`
-    quantity.className = 'quant'
+    let amount = document.createElement('div')
+    amount.textContent = `Amount: ${sandwhich.amount}`
+    amount.className = 'amoun'
     let buyBtn = document.createElement('button')
     buyBtn.textContent = 'Buy'
     buyBtn.id = sandwhich.id
     buyBtn.className = 'buyBtn'
-    card.append(img, species, price, quantity, buyBtn)
+    card.append(img, type, price, amount, buyBtn)
     sandwhichHolder.append(card)
     if(sandwhich.amount === 0){
         buyBtn.disabled = true
-        card.querySelector('.quant').textContent = 'Out of this Item'
+        card.querySelector('.amoun').textContent = 'Out of this Item'
     }
 // Used submit event listener
 
