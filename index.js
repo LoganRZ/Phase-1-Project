@@ -21,7 +21,7 @@ function data(sandwhichType){
     })
 }
 
-let reptileContainer = document.querySelector('.sandwhich-holder')
+let sandwhichHolder = document.querySelector('.sandwhich-holder')
 
 function addSandwhich(sandwhich) {
     let card = document.createElement('div')
@@ -56,7 +56,7 @@ buy.addEventListener('click', () => {
     if (sandwhich.amount === 0){
         card.querySelector('.quant').textContent = 'Out of this Item'
         buyBtn.disabled = true
-        update(reptile)
+        update(sandwhich)
     }else{
         card.querySelector('.quant').textContent = `Quantity: ${sandwhich.amount}`
         update(sandwhich)
@@ -66,7 +66,7 @@ buy.addEventListener('click', () => {
 
 // PATCH method used to send the updated quantity of the reptiles
 
-function update(reptile){
+function update(sandwhich){
     fetch(`http://localhost:3000/sandwhiches/${sandwhich.id}`,{
         method: 'PATCH',
         headers: {
