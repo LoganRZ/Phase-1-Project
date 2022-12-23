@@ -2,64 +2,64 @@
 //Makes a const for 'API'
 //Used DomContenetLoaded event listener
 
-document.addEventListener('DOMContentLoaded', fetchReptiles)
+document.addEventListener('DOMContentLoaded', sandwhiches)
 
 //getting the reptiles using fetch GET
 
-function fetchReptiles(){
-    fetch('http://localhost:3000/reptiles')
+function fetchSandwhiches(){
+    fetch('http://localhost:3000/sandwhiches')
     .then(res => res.json())
-    .then(reptileData => data(reptileData))
+    .then(sandwhiches => data(sandwhiches))
 }
 
 //using forEach to loop through the reptile data
 // then send each reptile through the addReptile function
 
-function data(reptileData){
-    reptileData.forEach(reptile => {
-        addReptile(reptile)
+function data(sandwhichType){
+    sandwhichType.forEach(sandwhich => {
+        addSandwhich(sandwhich)
     })
 }
 
-let reptileContainer = document.querySelector('.reptile-container')
+let reptileContainer = document.querySelector('.sandwhich-holder')
 
-function addReptile(reptile) {
+function addSandwhich(sandwhich) {
     let card = document.createElement('div')
     card.className = 'card'
     let img = document.createElement('img')
-    img.src = reptile.image
-    img.className = 'reptile-img'
+    img.src = sandwhich.image
+    img.className = 'sandwhich-img'
     let species = document.createElement('div')
-    species.textContent = reptile.species
-    species.className = 'reptile-info'
+    species.textContent = sandwhich.type
+    species.className = 'sandwhich-info'
     let price = document.createElement('div')
-    price.textContent = reptile.price
-    price.className = 'reptile-info'
+    price.textContent = sandwhich.price
+    price.className = 'sandwhich-info'
     let quantity = document.createElement('div')
-    quantity.textContent = `Quantity: ${reptile.quantity}`
+    quantity.textContent = `Quantity: ${sandwhich.amount}`
     quantity.className = 'quant'
     let buyBtn = document.createElement('button')
     buyBtn.textContent = 'Buy'
-    buyBtn.id = reptile.id
+    buyBtn.id = sandwhich.id
     buyBtn.className = 'buyBtn'
     card.append(img, species, price, quantity, buyBtn)
-    reptileContainer.append(card)
-    if(reptile.quantity === 0){
+    sandwhichHolder.append(card)
+    if(sandwhich.amount === 0){
         buyBtn.disabled = true
-        card.querySelector('.quant').textContent = 'Sorry out of stock'
+        card.querySelector('.quant').textContent = 'Out of this Item'
     }
 // Used submit event listener
 
-let buy = document.getElementById(`${reptile.id}`)
+let buy = document.getElementById(`${sandwhich.id}`)
 buy.addEventListener('click', () => {
-    reptile.quantity -= 1
-    if (reptile.quantity === 0){
-        card.querySelector('.quant').textContent = 'Sorry out of stock'
+    sandwhich.amount -= 1
+    if (sandwhich.amount === 0){
+        card.querySelector('.quant').textContent = 'Out of this Item'
         buyBtn.disabled = true
         update(reptile)
     }else{
-        card.querySelector('.quant').textContent = `Quantity: ${reptile.quantity}`
-        update(reptile)
+        card.querySelector('.quant').textContent = `Quantity: ${sandwhich.amount}`
+        update(sandwhich)
     }
 })
 }
@@ -67,45 +67,45 @@ buy.addEventListener('click', () => {
 // PATCH method used to send the updated quantity of the reptiles
 
 function update(reptile){
-    fetch(`http://localhost:3000/reptiles/${reptile.id}`,{
+    fetch(`http://localhost:3000/sandwhiches/${sandwhich.id}`,{
         method: 'PATCH',
         headers: {
              'Content-Type': 'application/json',
              Accept: 'application.json'
         },
-        body:JSON.stringify(reptile)
+        body:JSON.stringify(sandwhich)
     })
 }
 
 //Submit event listener
 
 let form = document.querySelector('form')
-form.addEventListener('submit', newReptile)
+form.addEventListener('submit', newSandwhich)
 
-function newReptile(e){
+function anotherSandwhich(e){
     e.preventDefault()
-    let newReptile = {
-        'species': e.target.name.value,
+    let newSandwhich = {
+        'type': e.target.name.value,
         'image': e.target.image.value,
-        'price': e.target.price.value,
+        'amount': e.target.amount.value,
         'quantity': e.target.quantity.value
     }
 
-    newReptileSubmit(newReptile)
+    newSandwhichSubmit(newSandwhich)
     form.reset()
 }
 
 //Used POST method to send new reptiles to the database
 
-function newReptileSubmit(newReptile){
-    fetch('http://localhost:3000/reptiles',{
+function sandyWhich(anotherSandwhich){
+    fetch('http://localhost:3000/sandwhiches',{
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json',
             Accept: 'application/json'
         },
-        body: JSON.stringify(newReptile)
+        body: JSON.stringify(anotherSandwhich)
     })
     .then(resp => resp.json())
-    .then(reptile => addReptile(reptile))
+    .then(sandwhich => addSandwhich(sandwhich))
 }

@@ -1,6 +1,6 @@
 body {
   font-family: 'Times New Roman', Times, serif;
-  background-image: url(https://wallpapercave.com/dwp1x/wp1938146.jpg);
+  background-image: url(https://media.istockphoto.com/id/1256670482/photo/turkey-sandwich-with-tomato-and-lettuce.jpg?s=612x612&w=0&k=20&c=CPwIFBHQqOob3SNZbegKKjUVL6xkUZgoQ2cxT0jcUrQ=);
 }
 
 .header {
@@ -43,7 +43,7 @@ body {
   color: white;
 }
 
-.reptile-container {
+.sandwhich-holder {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -55,13 +55,13 @@ body {
   border: 2px solid;
 }
 
-.reptile-info, .quant {
+.sandwhich-type, .quant {
   font-size: 25px;
   text-align: center;
   padding: 5px;
 }
 
-.reptile-img {
+.sandwhich-img {
   height: 250px;
   width: 250px;
 }
