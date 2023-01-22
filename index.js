@@ -36,7 +36,7 @@ const sandwhiches=[
 
   const element = document.getElementById("myBtn");
   element.addEventListener("click", myFunction);
-  id= "demo"
+
   function myFunction() {
     document.getElementById("demo").innerHTML = "Hello World";
   }
