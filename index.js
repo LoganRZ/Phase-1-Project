@@ -1,29 +1,35 @@
-const characters=[
+const sandwhiches=[
     {
-      "name": "Rick",
-      "status": "Alive",
-      "favoriteFood": [
-        "Pizza",
-        "Candy",
-        "Apples"
+      "name": "Turkey and Cheese",
+      "ingredientCount": "6",
+      "ingredients": [
+        "Lettuce",
+        "Tomato",
+        "Turkey",
+        "Cheddar",
+        "Bread",
+        "Mustard"
       ]
     },
     {
-      "name": "Morty",
-      "status": "Alive",
-      "favoriteFood": [
-        "Sushi",
-        "Chips",
-        "Hamburger"
+      "name": "BLT",
+      "ingredientCount": "5",
+      "ingredients": [
+        "Bacon",
+        "Lettuce",
+        "Tomato",
+        "Bread",
+        "Mayo"
       ]
     },
     {
-      "name": "Squanchy",
-      "status": "Alive",
-      "favoriteFood": [
-        "Fish",
-        "Chicken",
-        "Pork"
+      "name": "Meatball",
+      "ingredientCount": "4",
+      "ingredients": [
+        "Meatballs",
+        "Marinara Sauce",
+        "Bread",
+        "Cheese"
       ]
     }
   ]
